@@ -55,4 +55,19 @@ export class MemberDetailComponent implements OnInit {
     return imageUrls;
   }
 
+  // tslint:disable-next-line: typedef
+  descriptionIsEmpty() {
+    return this.user.introduction === null;
+  }
+
+  // tslint:disable-next-line: typedef
+  lookingForIsEmpty() {
+    return this.user.lookingFor === null;
+  }
+
+  // tslint:disable-next-line: typedef
+  interestsIsEmpty() {
+    return this.user.interests === null;
+  }
+
 }
