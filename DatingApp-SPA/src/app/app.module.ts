@@ -35,6 +35,7 @@ import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
 import { TimeAgoPipe } from 'time-ago-pipe';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { ListsResolver } from './_resolvers/lists.resolver';
 
 // tslint:disable-next-line: typedef
 export function tokenGetter() {
@@ -54,6 +55,7 @@ export function tokenGetter() {
     MemberDetailComponent,
     MemberEditComponent,
     PhotoEditorComponent,
+    TimeAgoPipe,
    ],
   imports: [
     BrowserModule,
@@ -88,7 +90,8 @@ export function tokenGetter() {
     MemberDetailResolver,
     MemberListResolver,
     MemberEditResolver,
-    PreventUnsavedChanges
+    PreventUnsavedChanges,
+    ListsResolver,
   ],
   bootstrap: [AppComponent]
 })
