@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
+import { Message } from '../_models/Message';
 import { PaginatedResult } from '../_models/pagination';
 import { User } from '../_models/user';
 
@@ -14,14 +15,14 @@ export class UserService {
 
   constructor(private http: HttpClient) {}
 
-  getUsers(page?, itemsPerPages?, userParams?, likesParam?): Observable<PaginatedResult<User[]>> {
+  getUsers(page?, itemsPerPage?, userParams?, likesParam?): Observable<PaginatedResult<User[]>> {
     const paginatedResult: PaginatedResult<User[]> = new PaginatedResult<User[]>();
 
     let params = new HttpParams();
 
-    if (page != null && itemsPerPages != null) {
+    if (page != null && itemsPerPage != null) {
       params = params.append('pageNumber', page);
-      params = params.append('pageSize', itemsPerPages);
+      params = params.append('pageSize', itemsPerPage);
     }
 
     if (userParams != null) {
@@ -80,4 +81,60 @@ export class UserService {
   sendLike(id: number, recipientId: number) {
     return this.http.post(this.baseUrl + 'users/' + id + '/like/' + recipientId, {});
   }
+
+  // tslint:disable-next-line: typedef
+  getMessages(id: number, page?, itemsPerPage?, messageContainer?) {
+    const paginatedResult: PaginatedResult<Message[]> = new PaginatedResult<
+      Message[]
+    >();
+
+    let params = new HttpParams();
+
+    params = params.append('MessageContainer', messageContainer);
+
+    if (page != null && itemsPerPage != null) {
+      params = params.append('pageNumber', page);
+      params = params.append('pageSize', itemsPerPage);
+    }
+
+    return this.http
+      .get<Message[]>(this.baseUrl + 'users/' + id + '/messages', {
+        observe: 'response',
+        params
+      })
+      .pipe(
+        map(response => {
+          paginatedResult.result = response.body;
+          if (response.headers.get('Pagination') !== null) {
+            paginatedResult.pagination = JSON.parse(
+              response.headers.get('Pagination')
+            );
+          }
+
+          return paginatedResult;
+        })
+      );
+  }
+
+  // tslint:disable-next-line: typedef
+  getMessagesThread(id: number, recipientId: number) {
+    return this.http.get<Message[]>(this.baseUrl + 'users/' + id + '/messages/thread/' + recipientId);
+  }
+
+  // tslint:disable-next-line: typedef
+  sendMessage(id: number, message: Message) {
+    return this.http.post(this.baseUrl + 'users/' + id + '/messages', message);
+  }
+
+  // tslint:disable-next-line: typedef
+  deleteMessage(id: number, userId: number) {
+    return this.http.post(this.baseUrl + 'users/' + userId + '/messages/' + id, {});
+  }
+
+  // tslint:disable-next-line: typedef
+  markAsRead(id: number, userId: number) {
+    this.http.post(this.baseUrl + 'users/' + userId + '/messages/' + id + '/read', {})
+      .subscribe();
+  }
+
 }
