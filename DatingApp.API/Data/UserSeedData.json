@@ -1,6 +1,8 @@
 [
     {
-        "UserName": "Lisa",
+        "FirstName": "Lisa",
+        "LastName": "Test",
+        "Email": "lisa@gmail.com",
         "Gender": "female",
         "DateOfBirth": "1956-07-22",
         "Password": "password",
@@ -20,7 +22,9 @@
         ]
     },
     {
-        "UserName": "Karen",
+        "FirstName": "Karen",
+        "LastName": "Test",
+        "Email": "karen@gmail.com",
         "Gender": "female",
         "DateOfBirth": "1995-10-12",
         "Password": "password",
@@ -40,7 +44,9 @@
         ]
     },
     {
-        "UserName": "Margo",
+        "FirstName": "Margo",
+        "LastName": "Test",
+        "Email": "margo@gmail.com",
         "Gender": "female",
         "DateOfBirth": "1959-01-24",
         "Password": "password",
@@ -60,7 +66,9 @@
         ]
     },
     {
-        "UserName": "Lois",
+        "FirstName": "Lois",
+        "LastName": "Test",
+        "Email": "lois@gmail.com",
         "Gender": "female",
         "DateOfBirth": "1988-06-22",
         "Password": "password",
@@ -80,7 +88,9 @@
         ]
     },
     {
-        "UserName": "Ruthie",
+        "FirstName": "Ruthie",
+        "LastName": "Test",
+        "Email": "ruthie@gmail.com",
         "Gender": "female",
         "DateOfBirth": "1956-01-12",
         "Password": "password",
@@ -100,7 +110,9 @@
         ]
     },
     {
-        "UserName": "Todd",
+        "FirstName": "Todd",
+        "LastName": "Test",
+        "Email": "todd@gmail.com",
         "Gender": "male",
         "DateOfBirth": "1950-02-07",
         "Password": "password",
@@ -120,7 +132,9 @@
         ]
     },
     {
-        "UserName": "Porter",
+        "FirstName": "Porter",
+        "LastName": "Test",
+        "Email": "porter@gmail.com",
         "Gender": "male",
         "DateOfBirth": "1967-04-09",
         "Password": "password",
@@ -140,7 +154,9 @@
         ]
     },
     {
-        "UserName": "Mayo",
+        "FirstName": "Mayo",
+        "LastName": "Test",
+        "Email": "mayo@gmail.com",
         "Gender": "male",
         "DateOfBirth": "1990-03-23",
         "Password": "password",
@@ -160,7 +176,9 @@
         ]
     },
     {
-        "UserName": "Skinner",
+        "FirstName": "Skinner",
+        "LastName": "Test",
+        "Email": "skinner@gmail.com",
         "Gender": "male",
         "DateOfBirth": "1952-12-01",
         "Password": "password",
@@ -180,7 +198,9 @@
         ]
     },
     {
-        "UserName": "Davis",
+        "FirstName": "Davis",
+        "LastName": "Test",
+        "Email": "davis@gmail.com",
         "Gender": "male",
         "DateOfBirth": "1978-03-20",
         "Password": "password",

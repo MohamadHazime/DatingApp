@@ -23,14 +23,78 @@
   </div>
 
   <div class="form-group">
-    <input type="text" 
-      [ngClass]="{'is-invalid': registerForm.get('username').errors 
-        && registerForm.get('username').touched}"
-      class="form-control" 
-      formControlName="username" 
-      placeholder="Username">
-    <div class="invalid-feedback">
-      Please choose a username
+    <input
+      [ngClass]="{
+        'is-invalid':
+          registerForm.get('firstName').errors &&
+          registerForm.get('firstName').touched
+      }"
+      class="form-control"
+      placeholder="First Name"
+      formControlName="firstName"
+    />
+    <div
+      class="invalid-feedback"
+      *ngIf="
+        registerForm.get('firstName').touched &&
+        registerForm.get('firstName').hasError('required')
+      "
+    >
+      First Name is required
+    </div>
+  </div>
+
+  <div class="form-group">
+    <input
+      [ngClass]="{
+        'is-invalid':
+          registerForm.get('lastName').errors &&
+          registerForm.get('lastName').touched
+      }"
+      class="form-control"
+      placeholder="Last Name"
+      formControlName="lastName"
+    />
+    <div
+      class="invalid-feedback"
+      *ngIf="
+        registerForm.get('lastName').touched &&
+        registerForm.get('lastName').hasError('required')
+      "
+    >
+      Last Name is required
+    </div>
+  </div>
+
+  <div class="form-group">
+    <input
+      [ngClass]="{
+        'is-invalid':
+          registerForm.get('email').errors &&
+          registerForm.get('email').touched
+      }"
+      class="form-control"
+      placeholder="Email"
+      formControlName="email"
+      [email]="true"
+    />
+    <div
+      class="invalid-feedback"
+      *ngIf="
+        registerForm.get('email').touched &&
+        registerForm.get('email').hasError('required')
+      "
+    >
+      Email is required
+    </div>
+    <div
+      class="invalid-feedback"
+      *ngIf="
+        registerForm.get('email').touched &&
+        registerForm.get('email').hasError('email')
+      "
+    >
+      Enter a vaild email
     </div>
   </div>
 
